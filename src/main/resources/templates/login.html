@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-md-4 col-md-offset-4 spacer40">
+    <div class="container red">
+        <div
+                th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" th:text="#{authentication}">file</div>
+        <div class="panel-body">
+            <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label class="control-label">User Name:</label>
+                    <input class="form-control" type="text" name="u"/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Pass Word:</label>
+                    <input class="form-control" type="password" name="p"/>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

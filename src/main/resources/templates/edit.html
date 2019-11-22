@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="fragments :: navbar">...</div>
+<div class="container">
+    <form action="#" th:action="@{/admin/chprod}" th:object="${editprod}" method="post">
+        <label class="control-label">Désignation:</label>
+        <input type="text" hidden name="id" th:value="${editprod.id}"/>
+        <input type="text" name="designation" th:value="${editprod.designation}"/>
+        <span th:errors="${editprod.designation}"></span>
+        <label>Prix:</label>
+        <input type="text" name="prix" th:value="${editprod.prix}"/>
+        <span th:errors="${editprod.prix}"></span>
+        <label>Quantité:</label>
+        <input type="text" name="quantite" th:value="${editprod.quantite}"/>
+        <span th:errors="${editprod.quantite}"></span>
+        <button type="submit">Save</button>
+    </form>
+</div>
+</body>
+</html>
